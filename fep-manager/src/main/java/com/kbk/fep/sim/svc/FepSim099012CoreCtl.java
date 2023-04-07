@@ -49,8 +49,8 @@ public class FepSim099012CoreCtl {
 		logger.info("--- REQUEST HEADERS : [" + headerMap + "]");
 		logger.info("--- REQUEST BODY : [" + body + "]");
 		
-		RestTemplate restTemplate = restTemplateBuilder.setConnectTimeout(Duration.ofSeconds(12000))
-				.setReadTimeout(Duration.ofSeconds(12000))
+		RestTemplate restTemplate = restTemplateBuilder.setConnectTimeout(Duration.ofMillis(12000))
+				.setReadTimeout(Duration.ofMillis(12000))
 				.build();
 		ResponseEntity<String> response = null;
 		body = body.replaceAll("0200", "0210");

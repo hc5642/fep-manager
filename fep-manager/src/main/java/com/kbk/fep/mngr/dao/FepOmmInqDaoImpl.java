@@ -36,8 +36,8 @@ public class FepOmmInqDaoImpl implements FepOmmInqDao {
 		int connectionTimeout = 12000;
 		int readTimeout = 12000;
 		
-		RestTemplate restTemplate = builder.setConnectTimeout(Duration.ofSeconds(connectionTimeout))
-				.setReadTimeout(Duration.ofSeconds(readTimeout))
+		RestTemplate restTemplate = builder.setConnectTimeout(Duration.ofMillis(connectionTimeout))
+				.setReadTimeout(Duration.ofMillis(readTimeout))
 				.build();
 		
 		FepOmmInqVo retValue = null;
