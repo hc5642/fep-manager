@@ -8,6 +8,7 @@ import java.net.SocketAddress;
 import java.net.URLDecoder;
 import java.text.NumberFormat;
 import java.text.SimpleDateFormat;
+import java.time.Duration;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
@@ -824,8 +825,8 @@ public class FepManagerCtl {
 		}
 		logger.info("--- FepStaticDataInfo.crdUrl INFO : ["+FepStaticDataInfo.crdUrl+"]");
 		
-		RestTemplate restTemplate = restTemplateBuilder.setReadTimeout(12000)
-				.setReadTimeout(12000)
+		RestTemplate restTemplate = restTemplateBuilder.setConnectTimeout(Duration.ofSeconds(12))
+				.setReadTimeout(Duration.ofSeconds(12))
 				.build();
 		ResponseEntity<String> response = null;
 		try {
