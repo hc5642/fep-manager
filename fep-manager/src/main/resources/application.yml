@@ -1,0 +1,24 @@
+server:
+  port: 61616
+  
+spring:
+  mvc:
+    view:
+      prefix: /WEB-INF/jsp/
+      suffix: .jsp
+  datasource:
+    driver-class-name: 
+    url:
+    username:
+    password:
+    
+kbank:
+  fep-line-db:
+  fep-sim-db:
+  fep-sms1:
+  fep-sms2:
+  fep-access-ips:
+  fep-admin-user:
+  
+
+  
