@@ -15,6 +15,7 @@ import java.net.Socket;
 import java.net.URLEncoder;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
+import java.time.Duration;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
@@ -51,7 +52,7 @@ import org.springframework.web.client.HttpStatusCodeException;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
 
-import com.cubeone.CubeOneAPI;
+//import com.cubeone.CubeOneAPI;
 import com.kbk.fep.mngr.dao.FepManagerDao;
 import com.kbk.fep.mngr.dao.vo.FepAllineVo;
 import com.kbk.fep.mngr.dao.vo.FepSmsInfoVo;
@@ -180,7 +181,7 @@ public class FepManagerSvcImpl implements FepManagerSvc {
 			response = rest.postForEntity(url, request, byte[].class);
 			if (response != null) {
 				logger.info("--- 응답 데이터 : [" + new String(response.getBody()) + "]");
-				retValue = response.getStatusCode().name();
+				retValue = response.getStatusCode().toString();
 			} else
 				logger.info("--- 응답 데이터 : [NULL]");
 			
@@ -199,8 +200,8 @@ public class FepManagerSvcImpl implements FepManagerSvc {
 		int connectionTimeout = 12000;
 		int readTimeout = 12000;
 		
-		RestTemplate restTemplate = builder.setConnectTimeout(connectionTimeout)
-				.setReadTimeout(readTimeout)
+		RestTemplate restTemplate = builder.setConnectTimeout(Duration.ofMillis(connectionTimeout))
+				.setReadTimeout(Duration.ofMillis(readTimeout))
 				.build();
 		ResponseEntity<String> response = null;
 		
@@ -260,7 +261,8 @@ public class FepManagerSvcImpl implements FepManagerSvc {
 
 		String body = plainText.substring(500);
 		inbyte = body.getBytes();
-		encryptedText = CubeOneAPI.coencbytes(inbyte, inbyte.length, "AES_PI", 11, null, null, errbyte);
+//		encryptedText = CubeOneAPI.coencbytes(inbyte, inbyte.length, "AES_PI", 11, null, null, errbyte);
+		encryptedText = body;
 
 		if (errbyte[0] != 48) {
 			throw new Exception("--- encryptPI Error : " + new String(errbyte));
@@ -552,7 +554,7 @@ public class FepManagerSvcImpl implements FepManagerSvc {
 	
 	/* 파일 복호화 */
 	public void decryptPI(String infile, String outfile) throws Exception {
-		CubeOneAPI.codecfile(infile,outfile,"KBANK","AES_PI");
+//		CubeOneAPI.codecfile(infile,outfile,"KBANK","AES_PI");
 	}
 	
 	
