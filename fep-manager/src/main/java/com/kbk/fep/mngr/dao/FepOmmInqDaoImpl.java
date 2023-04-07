@@ -2,6 +2,7 @@ package com.kbk.fep.mngr.dao;
 
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
+import java.time.Duration;
 import java.util.Date;
 
 import org.slf4j.Logger;
@@ -35,8 +36,8 @@ public class FepOmmInqDaoImpl implements FepOmmInqDao {
 		int connectionTimeout = 12000;
 		int readTimeout = 12000;
 		
-		RestTemplate restTemplate = builder.setConnectTimeout(connectionTimeout)
-				.setReadTimeout(readTimeout)
+		RestTemplate restTemplate = builder.setConnectTimeout(Duration.ofSeconds(connectionTimeout))
+				.setReadTimeout(Duration.ofSeconds(readTimeout))
 				.build();
 		
 		FepOmmInqVo retValue = null;
