@@ -40,7 +40,8 @@ public class FepSessionUtil {
 			userId = "40160521";
 		}
 		String retValue = "";
-		Cookie auth = WebUtils.getCookie(request, "AUTH"); // 쿠키정보를 가져와
+//		Cookie auth = WebUtils.getCookie(request, "AUTH"); // 쿠키정보를 가져와
+		Cookie auth = null;
 		FepAluserVo vo = null;
 		logger.info("--- GET COOKIE [AUTH] : " + auth);
 		if ( ObjectUtils.isEmpty(auth) || !auth.getValue().equalsIgnoreCase(request.getSession().getId()) ) {
