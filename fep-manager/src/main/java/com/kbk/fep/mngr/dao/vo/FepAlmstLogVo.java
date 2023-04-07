@@ -1,6 +1,6 @@
 package com.kbk.fep.mngr.dao.vo;
 
-import com.cubeone.CubeOneAPI;
+//import com.cubeone.CubeOneAPI;
 
 public class FepAlmstLogVo {
 	
@@ -159,7 +159,8 @@ public class FepAlmstLogVo {
 		byte errbyte[] = new byte[5];
 		StringBuffer hexStr = new StringBuffer();
 		try {
-			byte [] decbyte = CubeOneAPI.codecbyte(new String(msgData).substring(500), "AES_PI", 11, null, null, errbyte);
+//			byte [] decbyte = CubeOneAPI.codecbyte(new String(msgData).substring(500), "AES_PI", 11, null, null, errbyte);
+			byte [] decbyte = new String(msgData).substring(500).getBytes();
 			if( decbyte != null && decbyte.length > 50) {
 				this.flatData = new String(decbyte);
 				if ( this.flatData.startsWith("{") ) {
