@@ -1,3 +1,4 @@
+
 server:
   port: 61616
   
@@ -6,19 +7,9 @@ spring:
     view:
       prefix: /WEB-INF/jsp/
       suffix: .jsp
-  datasource:
-    driver-class-name: 
-    url:
-    username:
-    password:
+  datasource: 
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:tcp://localhost/~/test
+    username: fep_appb
     
-kbank:
-  fep-line-db:
-  fep-sim-db:
-  fep-sms1:
-  fep-sms2:
-  fep-access-ips:
-  fep-admin-user:
-  
-
   

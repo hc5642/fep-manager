@@ -6,14 +6,10 @@ import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Component;
 
 @Component
-@PropertySource({
-	"file:/kbksw/swdpt/anylink/fep-manager/config/txinfo.properties",
-	"file:/kbksw/swdpt/anylink/fep-manager/config/error.properties",
-	"file:/kbksw/swdpt/anylink/fep-manager/config/phone.properties"
-})
 //@PropertySource({
-//	"C:/__dev__/kbankapi/workspace/fep-manager/src/main/resources/txinfo.properties",
-//	"C:/__dev__/kbankapi/workspace/fep-manager/src/main/resources/error.properties"
+//	"file:./config/txinfo.properties",
+//	"file:./config/error.properties",
+//	"file:./config/phone.properties"
 //})
 public class FepPropInfo {
 	

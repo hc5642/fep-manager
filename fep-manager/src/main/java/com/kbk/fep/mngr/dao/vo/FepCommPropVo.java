@@ -1,30 +1,22 @@
 package com.kbk.fep.mngr.dao.vo;
 
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 @Component
 public class FepCommPropVo {
 	
-	@Value("${kbank.fep-line-db}")
 	private String fepLineDb;
 	
-	@Value("${kbank.fep-sim-db}")
 	private String fepSimDb;
 	
-	@Value("${spring.profiles}")
-	private String profiles;
+	private String profiles = "dev";
 	
-	@Value("${kbank.fep-sms1}")
 	private String fep_sms1;
 	
-	@Value("${kbank.fep-sms2}")
 	private String fep_sms2;
 	
-	@Value("${kbank.fep-access-ips}")
 	private String fep_access_ips;
 	
-	@Value("${kbank.fep-admin-user}")
 	private String fep_admin_user;
 	
 	public String getFepSimDb() {
